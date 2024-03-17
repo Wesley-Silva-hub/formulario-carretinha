@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cadastrar Usuario</title>
+    <!-- Adicione os links para os arquivos CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Adicione estilos personalizados aqui, se necessário */
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 20px; /* Espaçamento entre os campos */
+        }
+
+        .form-group label {
+            width: 80px; /* Largura fixa reduzida para os rótulos */
+            margin-right: 10px; /* Espaçamento entre o rótulo e o campo de entrada */
+            text-align: right; /* Alinhamento do texto do rótulo à direita */
+        }
+
+        .form-group input {
+            flex: 1; /* O campo de entrada ocupa todo o espaço restante */
+        }
+
+        .submit-button {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center">Cadastrar Usuario</h2>
+
+    <form method="post" action="{% url 'cadastrar_usuario' %}" class="needs-validation" novalidate>
+        {% csrf_token %}
+        
+        <!-- Adicione classes Bootstrap aos elementos do formulário -->
+        <div class="form-group">
+            <label for="id_nomeUsuario">Nome:</label>
+            {{ form.nomeUsuario }}
+            <div class="invalid-feedback">
+                Por favor, insira o nome.
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_cpfUsuario">CPF:</label>
+            {{ form.cpfUsuario }}
+            <div class="invalid-feedback">
+                Por favor, insira o CPF.
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_emailUsuario">E-mail:</label>
+            {{ form.emailUsuario }}
+            <div class="invalid-feedback">
+                Por favor, insira o E-mail.
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_senhaUsuario">Senha:</label>
+            {{ form.senhaUsuario }}
+            <div class="invalid-feedback">
+                Por favor, insira a senha.
+            </div>
+        </div>
+
+        <div class="submit-button">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+    </form>
+</div>
+
+<!-- Adicione os scripts do Bootstrap no final do corpo para melhor desempenho -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

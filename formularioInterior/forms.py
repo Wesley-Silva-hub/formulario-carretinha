@@ -1,8 +1,8 @@
 
 from django import forms
-from .models import Pessoa
+from .models import Usuario
 
-class PessoaFormulario(forms.ModelForm):
+class UsuarioFormulario(forms.ModelForm):
     class Meta:
-        model = Pessoa
-        fields = ['nome', 'cpf']
+        model = Usuario
+        fields = ['nomeUsuario', 'cpfUsuario', 'emailUsuario', 'senhaUsuario', 'codUsuario']
